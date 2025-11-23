@@ -66,26 +66,40 @@ export default function CodeOutput({ code, language, isDarkMode }) {
 
     if (!code) {
         return (
-            <div className={`modern-card p-6 h-full min-h-[500px] ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
-                <div className="flex flex-col h-full">
-                    <div className={`mb-4 text-center py-4 rounded-xl ${isDarkMode ? 'bg-slate-900/50' : 'bg-slate-100'}`}>
-                        <p className={`text-lg font-semibold ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                            No code generated yet
+            <div className={`modern-card p-6 h-full min-h-[500px] relative overflow-hidden ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
+                {/* Animated background gradient */}
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+                    <div className="absolute top-0 -right-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+                    <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+                </div>
+                
+                <div className="flex flex-col h-full relative z-10">
+                    <div className={`mb-4 text-center py-6 rounded-2xl backdrop-blur-sm border-2 ${isDarkMode ? 'bg-gradient-to-br from-slate-900/80 via-purple-900/20 to-blue-900/20 border-slate-700/50' : 'bg-gradient-to-br from-white/80 via-purple-50/50 to-blue-50/50 border-slate-200'} shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 hover:scale-[1.02]`}>
+                        <div className="inline-flex p-4 rounded-2xl mb-3 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 animate-pulse">
+                            <CodeBracketIcon className={`h-12 w-12 ${isDarkMode ? 'text-blue-400' : 'text-indigo-600'} animate-bounce`} />
+                        </div>
+                        <p className={`text-xl font-extrabold mb-2 bg-gradient-to-r ${isDarkMode ? 'from-blue-400 via-purple-400 to-pink-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]`}>
+                            ✨ No code generated yet ✨
                         </p>
-                        <p className={`text-sm mt-1 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                        <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                             Your generated code will appear here...
                         </p>
                     </div>
-                    <div className={`flex-1 border-2 border-dashed rounded-lg ${isDarkMode ? 'border-slate-700' : 'border-slate-300'}`}></div>
+                    <div className={`flex-1 border-2 border-dashed rounded-xl relative ${isDarkMode ? 'border-slate-700' : 'border-slate-300'} group hover:border-purple-500/50 transition-all duration-300`}>
+                        <div className={`absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-300`}>
+                            <span className={`text-6xl ${isDarkMode ? 'text-slate-700' : 'text-slate-300'}`}>{'</>'}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className={`modern-card overflow-hidden h-full flex flex-col ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
+        <div className={`modern-card overflow-hidden h-full flex flex-col relative ${isDarkMode ? 'bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 border-slate-700' : 'bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30 border-slate-200'} transition-all duration-500 shadow-2xl hover:shadow-purple-500/20 animate-in`}>
             {/* Header with Language Badge and Copy Button */}
-            <div className={`px-5 py-3.5 flex items-center justify-between border-b ${isDarkMode ? 'bg-slate-900/50 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
+            <div className={`px-5 py-3.5 flex items-center justify-between border-b backdrop-blur-sm ${isDarkMode ? 'bg-gradient-to-r from-slate-900/80 via-purple-900/30 to-slate-900/80 border-slate-700/50 shadow-lg shadow-purple-500/10' : 'bg-gradient-to-r from-slate-50 via-purple-50/50 to-slate-50 border-slate-200'} animate-in`}>
                 <div className="flex items-center gap-3">
                     {/* Language Badge */}
                     <span className="px-4 py-2 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-white text-sm font-extrabold rounded-xl uppercase tracking-wider shadow-lg animate-gradient bg-[length:200%_auto] hover:scale-110 hover:rotate-3 transition-all duration-300 cursor-default">

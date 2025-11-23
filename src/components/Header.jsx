@@ -23,7 +23,7 @@ export default function Header({ isDarkMode, toggleDarkMode }) {
 
                     {/* Center Tagline - Hidden on mobile */}
                     <div className="hidden md:block group">
-                        <p className={`text-base lg:text-lg font-bold bg-gradient-to-r ${isDarkMode ? 'from-cyan-400 via-blue-400 to-purple-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] group-hover:scale-110 transition-transform duration-300`}>
+                        <p className={`text-lg lg:text-xl font-extrabold bg-gradient-to-r ${isDarkMode ? 'from-cyan-400 via-blue-400 to-purple-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] group-hover:scale-110 transition-transform duration-300`}>
                             ✨ AI-Powered Code Generation ⚡
                         </p>
                     </div>

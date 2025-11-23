@@ -45,7 +45,12 @@ export default function PromptInput({ onGenerate, isLoading, isDarkMode }) {
                 />
             )}
 
-            <div className={`modern-card p-6 h-full flex flex-col ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
+            <div className={`modern-card p-6 h-full flex flex-col relative overflow-hidden ${isDarkMode ? 'bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 border-slate-700' : 'bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-slate-200'} transition-all duration-500 shadow-2xl hover:shadow-blue-500/20 animate-in`}>
+                {/* Animated background orbs */}
+                <div className="absolute inset-0 opacity-5 pointer-events-none">
+                    <div className="absolute top-10 left-10 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+                    <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+                </div>
                 {/* Header with Info Tooltip */}
                 <div className="flex items-center justify-between mb-6">
                     <h2 className={`text-xl lg:text-2xl font-extrabold bg-gradient-to-r ${isDarkMode ? 'from-blue-400 via-purple-400 to-pink-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] hover:scale-105 transition-transform duration-300 cursor-default`}>

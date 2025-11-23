@@ -47,30 +47,30 @@ export default function PromptInput({ onGenerate, isLoading, isDarkMode }) {
 
             <div className={`modern-card p-6 h-full flex flex-col ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
                 {/* Header with Info Tooltip */}
-                <div className="flex items-center justify-between mb-5">
-                    <h2 className={`text-lg font-semibold ${isDarkMode ? 'text-slate-50' : 'text-slate-900'}`}>
-                        Enter Your Prompt
+                <div className="flex items-center justify-between mb-6">
+                    <h2 className={`text-xl lg:text-2xl font-extrabold bg-gradient-to-r ${isDarkMode ? 'from-blue-400 via-purple-400 to-pink-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] hover:scale-105 transition-transform duration-300 cursor-default`}>
+                        💡 Enter Your Prompt
                     </h2>
                     <button 
-                        className={`p-1 rounded-lg ${isDarkMode ? 'text-slate-400 hover:text-slate-300 hover:bg-slate-700' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100'} transition-colors`}
+                        className={`p-2 rounded-xl transition-all duration-300 hover:scale-125 hover:rotate-[360deg] ${isDarkMode ? 'text-slate-400 hover:text-blue-400 hover:bg-gradient-to-br hover:from-blue-500/20 hover:to-purple-500/20 hover:shadow-lg hover:shadow-blue-500/50' : 'text-slate-500 hover:text-indigo-600 hover:bg-gradient-to-br hover:from-indigo-100 hover:to-purple-100 hover:shadow-lg hover:shadow-indigo-500/50'}`}
                         title="Describe what code you want to generate"
                     >
-                        <InformationCircleIcon className="h-5 w-5" />
+                        <InformationCircleIcon className="h-6 w-6" />
                     </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
                     {/* Language Selector with Icons */}
-                    <div className="mb-4">
-                        <label htmlFor="language" className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                            Programming Language
+                    <div className="mb-5 group">
+                        <label htmlFor="language" className={`block text-base lg:text-lg font-bold mb-3 ${isDarkMode ? 'text-slate-200 group-hover:text-blue-400' : 'text-slate-800 group-hover:text-indigo-600'} transition-colors duration-300`}>
+                            🔤 Programming Language
                         </label>
                         <select
                             id="language"
                             value={language}
                             onChange={(e) => setLanguage(e.target.value)}
                             disabled={isLoading}
-                            className={`w-full px-4 py-2.5 rounded-lg border-2 ${isDarkMode ? 'bg-slate-900 border-slate-700 text-slate-100 focus:border-blue-500' : 'bg-white border-slate-300 text-slate-900 focus:border-indigo-500'} focus:outline-none focus:ring-0 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium`}
+                            className={`w-full px-5 py-3.5 rounded-xl border-2 text-base ${isDarkMode ? 'bg-slate-900 border-slate-700 text-slate-100 hover:border-blue-500 focus:border-blue-500 hover:shadow-lg hover:shadow-blue-500/30' : 'bg-white border-slate-300 text-slate-900 hover:border-indigo-500 focus:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30'} focus:outline-none focus:ring-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-semibold cursor-pointer hover:scale-[1.02]`}
                         >
                             {LANGUAGES.map((lang) => (
                                 <option key={lang.value} value={lang.value}>
@@ -81,9 +81,9 @@ export default function PromptInput({ onGenerate, isLoading, isDarkMode }) {
                     </div>
 
                     {/* Prompt Textarea with Character Counter */}
-                    <div className="flex-1 mb-4 relative">
-                        <label htmlFor="prompt" className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                            Code Description
+                    <div className="flex-1 mb-5 relative group">
+                        <label htmlFor="prompt" className={`block text-base lg:text-lg font-bold mb-3 ${isDarkMode ? 'text-slate-200 group-hover:text-purple-400' : 'text-slate-800 group-hover:text-purple-600'} transition-colors duration-300`}>
+                            ✍️ Code Description
                         </label>
                         <textarea
                             id="prompt"
@@ -91,11 +91,11 @@ export default function PromptInput({ onGenerate, isLoading, isDarkMode }) {
                             onChange={(e) => setPrompt(e.target.value)}
                             placeholder="Describe what you want to code... (e.g., 'Create a Python function that calculates fibonacci numbers')"
                             maxLength={5000}
-                            className={`w-full h-full min-h-[200px] p-4 rounded-lg border-2 ${isDarkMode ? 'bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500 focus:border-blue-500' : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-indigo-500'} focus:outline-none focus:ring-0 resize-none transition-all duration-200 font-code text-sm`}
+                            className={`w-full h-full min-h-[220px] p-5 rounded-xl border-2 text-base ${isDarkMode ? 'bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500 focus:border-purple-500 hover:border-purple-600 hover:shadow-xl hover:shadow-purple-500/20' : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-purple-500 hover:border-purple-600 hover:shadow-xl hover:shadow-purple-500/20'} focus:outline-none focus:ring-0 resize-none transition-all duration-300 font-code hover:scale-[1.01]`}
                             disabled={isLoading}
                         />
                         {/* Character Counter */}
-                        <div className={`absolute bottom-2 right-2 text-xs ${isDarkMode ? 'text-slate-500' : 'text-slate-400'} font-mono`}>
+                        <div className={`absolute bottom-3 right-3 text-sm font-bold px-3 py-1 rounded-lg ${isDarkMode ? 'text-slate-400 bg-slate-800/80 group-hover:text-purple-400 group-hover:bg-purple-900/30' : 'text-slate-500 bg-slate-100/80 group-hover:text-purple-600 group-hover:bg-purple-100/80'} font-mono transition-all duration-300`}>
                             {charCount} / 5000
                         </div>
                     </div>
@@ -104,17 +104,19 @@ export default function PromptInput({ onGenerate, isLoading, isDarkMode }) {
                     <button
                         type="submit"
                         disabled={!prompt.trim() || isLoading}
-                        className="btn-ripple relative w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-slate-700 disabled:to-slate-800 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] disabled:hover:scale-100"
+                        className="btn-ripple relative w-full overflow-hidden bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 hover:from-blue-600 hover:via-purple-700 hover:to-pink-700 disabled:from-slate-700 disabled:to-slate-800 disabled:cursor-not-allowed text-white font-extrabold text-lg py-5 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl hover:shadow-[0_0_40px_rgba(168,85,247,0.8)] hover:scale-[1.05] active:scale-[0.95] disabled:hover:scale-100 animate-gradient bg-[length:200%_auto] group"
                     >
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent_50%)] transition-opacity duration-300"></div>
                         {isLoading ? (
                             <>
-                                <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                                <span>Generating...</span>
+                                <div className="relative animate-spin rounded-full h-6 w-6 border-3 border-white border-t-transparent"></div>
+                                <span className="relative text-xl bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent animate-pulse">Generating Magic...</span>
                             </>
                         ) : (
                             <>
-                                <SparklesIcon className="h-5 w-5" />
-                                <span>Generate Code</span>
+                                <SparklesIcon className="h-7 w-7 relative animate-pulse group-hover:rotate-180 group-hover:scale-125 transition-all duration-500" />
+                                <span className="relative group-hover:tracking-wider transition-all duration-300">Generate Code ✨🚀</span>
                             </>
                         )}
                     </button>

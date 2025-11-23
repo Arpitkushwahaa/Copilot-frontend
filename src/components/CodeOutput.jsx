@@ -93,11 +93,11 @@ export default function CodeOutput({ code, language, isDarkMode }) {
             <div className={`px-5 py-3.5 flex items-center justify-between border-b ${isDarkMode ? 'bg-slate-900/50 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
                 <div className="flex items-center gap-3">
                     {/* Language Badge */}
-                    <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-bold rounded-lg uppercase tracking-wide shadow-md">
+                    <span className="px-4 py-2 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 text-white text-sm font-extrabold rounded-xl uppercase tracking-wider shadow-lg animate-gradient bg-[length:200%_auto] hover:scale-110 hover:rotate-3 transition-all duration-300 cursor-default">
                         {language || 'code'}
                     </span>
-                    <h3 className={`text-sm font-semibold ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        Generated Code
+                    <h3 className={`text-base lg:text-lg font-extrabold bg-gradient-to-r ${isDarkMode ? 'from-blue-400 via-purple-400 to-pink-400' : 'from-indigo-600 via-purple-600 to-pink-600'} bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] group-hover:scale-105 transition-transform duration-300`}>
+                        ⚡ Generated Code 🎯
                     </h3>
                 </div>
 
@@ -130,13 +130,13 @@ export default function CodeOutput({ code, language, isDarkMode }) {
                     {/* Copy Button */}
                     <button
                         onClick={handleCopy}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all text-sm font-medium ${isDarkMode ? 'text-slate-300 hover:text-slate-100 hover:bg-slate-800' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'}`}
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all duration-300 text-sm font-medium transform hover:scale-110 ${isDarkMode ? 'text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600' : 'text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600'}`}
                         aria-label="Copy code to clipboard"
                     >
                         {copied ? (
                             <>
-                                <CheckIcon className="h-4 w-4 text-emerald-500" />
-                                <span className="text-emerald-500 hidden sm:inline">Copied!</span>
+                                <CheckIcon className="h-4 w-4 text-emerald-400 animate-bounce" />
+                                <span className="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent hidden sm:inline font-bold">Copied!</span>
                             </>
                         ) : (
                             <>
@@ -174,40 +174,40 @@ export default function CodeOutput({ code, language, isDarkMode }) {
             </div>
 
             {/* Action Buttons */}
-            <div className={`px-5 py-3 flex items-center gap-2 border-t ${isDarkMode ? 'bg-slate-900/50 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
+            <div className={`px-5 py-4 flex items-center gap-3 border-t ${isDarkMode ? 'bg-slate-900/50 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
                 <button
                     onClick={handleCopy}
-                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-indigo-600 hover:bg-indigo-700 text-white'}`}
+                    className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-extrabold text-base transition-all duration-300 transform hover:scale-110 active:scale-90 shadow-xl group ${isDarkMode ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white hover:shadow-[0_0_30px_rgba(168,85,247,0.8)]' : 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white hover:shadow-[0_0_30px_rgba(99,102,241,0.8)]'}`}
                 >
                     {copied ? (
                         <>
-                            <CheckIcon className="h-4 w-4" />
-                            <span>Copied!</span>
+                            <CheckIcon className="h-6 w-6 animate-bounce" />
+                            <span className="bg-gradient-to-r from-emerald-200 via-green-200 to-emerald-200 bg-clip-text text-transparent text-lg">Copied! ✓✓</span>
                         </>
                     ) : (
                         <>
-                            <ClipboardDocumentIcon className="h-4 w-4" />
-                            <span>Copy to Clipboard</span>
+                            <ClipboardDocumentIcon className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                            <span className="group-hover:tracking-wider transition-all duration-300">Copy to Clipboard 📋</span>
                         </>
                     )}
                 </button>
                 <button
                     onClick={handleDownload}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${isDarkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-200' : 'bg-slate-200 hover:bg-slate-300 text-slate-700'}`}
+                    className={`flex items-center gap-2 px-5 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-125 hover:rotate-3 active:scale-95 group ${isDarkMode ? 'bg-slate-800 hover:bg-gradient-to-r hover:from-emerald-600 hover:to-teal-600 text-slate-200 hover:text-white hover:shadow-[0_0_25px_rgba(16,185,129,0.8)]' : 'bg-slate-200 hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 text-slate-700 hover:text-white hover:shadow-[0_0_25px_rgba(16,185,129,0.8)]'}`}
                     title="Download as file"
                 >
-                    <ArrowDownTrayIcon className="h-4 w-4" />
+                    <ArrowDownTrayIcon className="h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
                     <span className="hidden sm:inline">Download</span>
                 </button>
                 <button
                     onClick={toggleFavorite}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all ${isDarkMode ? 'bg-slate-800 hover:bg-slate-700' : 'bg-slate-200 hover:bg-slate-300'} ${isFavorite ? 'text-red-500' : isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}
+                    className={`flex items-center gap-2 px-5 py-4 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-125 hover:rotate-6 active:scale-95 group ${isFavorite ? 'bg-gradient-to-r from-pink-500 via-red-500 to-pink-500 text-white shadow-xl shadow-pink-500/60 animate-pulse' : isDarkMode ? 'bg-slate-800 hover:bg-gradient-to-r hover:from-pink-600 hover:to-red-600 text-slate-400 hover:text-white hover:shadow-[0_0_25px_rgba(236,72,153,0.8)]' : 'bg-slate-200 hover:bg-gradient-to-r hover:from-pink-500 hover:to-red-500 text-slate-600 hover:text-white hover:shadow-[0_0_25px_rgba(236,72,153,0.8)]'}`}
                     title="Add to favorites"
                 >
                     {isFavorite ? (
-                        <HeartIconSolid className="h-4 w-4" />
+                        <HeartIconSolid className="h-5 w-5 group-hover:scale-150 transition-transform duration-300" />
                     ) : (
-                        <HeartIcon className="h-4 w-4" />
+                        <HeartIcon className="h-5 w-5 group-hover:fill-current transition-all duration-300" />
                     )}
                 </button>
             </div>

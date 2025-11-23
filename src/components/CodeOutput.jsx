@@ -66,23 +66,8 @@ export default function CodeOutput({ code, language, isDarkMode }) {
 
     if (!code) {
         return (
-            <div className={`modern-card p-6 h-full min-h-[500px] flex items-center ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
-                <div className="text-center w-full -mt-16">
-                    <div className={`inline-flex p-6 rounded-2xl mb-4 ${isDarkMode ? 'bg-slate-900/50' : 'bg-slate-100'}`}>
-                        <CodeBracketIcon className={`h-16 w-16 ${isDarkMode ? 'text-slate-600' : 'text-slate-400'}`} />
-                    </div>
-                    <p className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                        No code generated yet
-                    </p>
-                    <p className={`text-sm max-w-xs mx-auto ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>
-                        Your generated code will appear here...
-                    </p>
-                    <div className={`mt-4 border-2 border-dashed rounded-lg p-4 ${isDarkMode ? 'border-slate-700' : 'border-slate-300'}`}>
-                        <p className={`text-xs ${isDarkMode ? 'text-slate-600' : 'text-slate-400'}`}>
-                            Enter a prompt and click "Generate Code"
-                        </p>
-                    </div>
-                </div>
+            <div className={`modern-card p-6 h-full min-h-[500px] ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} transition-all duration-200`}>
+                <div className={`h-full border-2 border-dashed rounded-lg ${isDarkMode ? 'border-slate-700' : 'border-slate-300'}`}></div>
             </div>
         );
     }

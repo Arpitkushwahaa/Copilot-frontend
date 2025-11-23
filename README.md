@@ -1,6 +1,6 @@
 # Code Copilot - AI-Powered Code Generator
 
-![Code Copilot UI](https://raw.githubusercontent.com/Arpitkushwahaa/Copilot-frontend/main/screenshot.png)
+![Code Copilot UI](./screenshot.png)
 
 A modern, immersive web application for AI-powered code generation with a beautiful glassmorphism UI inspired by GitHub Copilot, Replit, and VSCode.
 
